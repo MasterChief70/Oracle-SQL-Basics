@@ -1,0 +1,1079 @@
+create table movie
+(
+mid number(2)primary key,
+mname varchar2(10),
+releaseyear number(4),
+mstatus varchar2(4),
+hero varchar2(20),
+heroine varchar2(20))
+insert into movie values(1,'rrr',2021,'hit','salman','katrina')
+insert into movie values(2,'gold',2019,'flop','akshay','katrina')
+insert into movie values(3,'adhd',2019,'flop','ranbir','katrina')
+insert into movie values(4,'lmao',2022,'flop','master','chief')
+insert into movie values(5,'mirzapur',2019,'hit','pankaj','priya')
+insert into movie values(6,'eivkdns',2019,'hit','adgvj','vdbmn')
+insert into movie values(7,'eivkd',2020,'flop','advj','vdbn')
+insert into movie values(8,'agag',2022,'flop','qqwr','sdnb')
+insert into movie values(9,'qwerty',2022,'hit','abc','xyz')
+insert into movie values(10,'kgf',2022,'hit','yash','srinidhi')
+insert into movie values(11,'mha',2022,'hit','deku','ribbit')
+insert into movie values(12,'jjk',2022,'hit','gon','rib')
+insert into movie values(13,'cglor',2022,'hit','ll','cc')
+insert into movie values(14,'overlord',2022,'hit','ains','albedo')
+insert into movie values(15,'sxf',2022,'hit','dk','ni')
+update movie
+set mname='raja',hero='varun',heroine='alia' where mid=15
+select * from movie
+update movie
+set mname='mimi',hero='pankaj',heroine='kriti' where mid=14
+update movie
+set mname='lyz',hero='shah rukh',heroine='alia' where mid=13
+update movie
+set mname='bharat',mstatus='flop',hero='salman',heroine='disha' where mid=12
+update movie
+set mname='ppaw',mstatus='flop',hero='kartik',heroine='kriti' where mid=11
+update movie
+set mname='zero',mstatus='flop',hero='shah rukh',heroine='priya' where mid=10
+update movie
+set mname='kgf 2',mstatus='hit',hero='yash',heroine='srinidhi' where mid=9
+update movie
+set mname='kgf ',mstatus='hit',hero='yash',heroine='srinidhi' where mid=8
+update movie
+set mname='criminal ',mstatus='hit',hero='pankaj',heroine='alia' where mid=7
+update movie
+set mname='company',mstatus='hit',hero='shahid',heroine='alia' where mid=6
+select * from movie
+select mname as moviename, mstatus as status , releaseyear as year,releaseyear+2 from movie
+select * from movie
+order by releaseyear
+select * from movie
+order by releaseyear desc
+select * from movie
+order by mname
+select * from movie
+order by releaseyear , hero
+select * from movie
+order by releaseyear , hero desc
+select * from movie
+where releaseyear=2019
+select * from movie
+where releaseyear=2019 and mstatus='flop'
+select * from movie
+where mid>2 and mid<7
+select * from movie
+where mstatus='hit'
+select * from movie
+where mname like 'a%'
+%a
+select * from movie
+where mname like '%a'
+%a%
+select * from movie
+where mname like '%a%'
+_a%
+select * from movie
+where mname like '_a%'
+%a_
+select * from movie
+where mname like '%a_'
+__a%
+select * from movie
+where mname like '__a%'
+___
+select * from movie
+where mname like '___'
+select * from movie
+where mname not like 'r%' and mname not like 'k%'
+select * from movie
+where mname not like 'r%'
+select * from movie
+where mname like 'm%' or mname like 'a%'
+select max(releaseyear),min(releaseyear) from movie
+//max min avg sum count
+select avg(releaseyear),min(releaseyear) from movie
+select count(releaseyear),avg(releaseyear) from movie
+select count(releaseyear),sum(releaseyear) from movie
+select mstatus from movie
+select distinct mstatus from movie
+create table demo
+as select * from movie
+select * from demo
+create table demo2
+as select mid,mname,releaseyear from movie where releaseyear=2022
+select * from demo2
+select * from demo
+delete from demo where mid>10
+select * from demo
+alter table demo
+add earning number(5)
+select * from demo
+update demo set earning=5000 where mid in(1,3,5)
+select * from demo
+alter table demo
+drop column earning
+select * from demo
+drop table demo
+select * from demo
+drop table demo2
+select * from demo2
+Exercise 1
+create table student
+(sid number(2) primary key,
+sname varchar2(15),
+school varchar2(10),
+hobby varchar2(15),
+std number(2),
+gender varchar2(1))
+insert into student values(1,'ajit','xavier','dance',5,'m')
+insert into student values(2,'alisha','sharda','singing',5,'f')
+insert into student values(3,'pratixa','a-one','cricket',5,'f')
+insert into student values(4,'deepam','h.b.k','pinting',6,'f')
+insert into student values(5,'nisha','santkabir','cricket',7,'f')
+insert into student values(6,'anya','xavier','singing',6,'f')
+insert into student values(7,'raj','a-one','painting',6,'m')
+insert into student values(8,'monish','sharda','karate',6,'m')
+insert into student values(9,'ram','a-one','dance',6,'m')
+insert into student values(10,'mihir','santkabir','singing',6,'m')
+insert into student values(11,'kavisha','xavier','swimming',7,'f')
+insert into student values(12,'nayan','a-one','cricket',7,'m')
+insert into student values(13,'meet','somlalit','cricket',7,'m')
+insert into student values(14,'urvi','sharda','dance',7,'f')
+insert into student values(15,'kunj','xavier','singing',8,'m')
+select * from student
+Queries
+1. List out the names of the students.
+A.- select sname from student
+2. Retrieve the list of Name, School and Std of all the students.
+A.- select sname, school, std from student
+3. List all the students who are studying in Sharda
+A.- select * from student
+where school='sharda'
+4. Find name of the student whose name starts with ‘R’
+A.- select sname from student
+where sname like 'r%'
+5. Find name of the student whose name starts with VOWELS
+A.- select sname from student
+where sname like 'a%' or sname like 'e%' or sname like 'i%' or sname like 'o%' or sname like 'u%'
+6. Find name of the student whose name starts with consonants
+A.- select sname from student
+where sname not like 'a%' and sname not like 'e%' and sname not like 'i%' and sname not like 'o%' and sname not like 'u%'
+7. Display all the records in ascending order of the name.
+A.- select sname from student
+order by sname
+8. Display all the records in ascending order of the schoolname and descending order of the
+number.
+A.- select * from student
+order by school, sid desc
+9. List all the school.
+A.- select school from student
+10.Count the total number of students.
+A.- select count(sid) from student
+11.Add 4 New columns maths,sci,eng and Fees.
+A.- alter table student
+Add maths number(3)
+Add science number (3)
+Add English number(3)
+Add fees number(5)
+12.Set the fees of 6 std is 6000, 7 is 7000, 8 is 8000, 5 is 5000.
+A.- update student set fees=6000 where std in(6)
+update student set fees=7000 where std in(7)
+update student set fees=8000 where std in(8)
+update student set fees=5000 where std in(5)
+13.Add marks of the student.
+A.- update student set maths=95 where sid in(1,2)
+update student set maths=85 where sid in(3,4,5,6)
+update student set maths=77 where sid in(7,8,9,10)
+update student set maths=65 where sid in(11,12,13,14,15)
+14.Count the Total male student
+A.- select count(gender) from student
+where gender='m'
+15. List the name of the boys
+A.- select sname from student
+where gender='m'
+16. List the name of the boys in Sharda
+A.- select sname from student
+where gender='m' and school='sharda'
+17. List the records whose hobby is cricket and from somlalit.
+A.- select * from student
+where hobby='cricket' and school='somlalit'
+18.Count the total fees.
+A.- select count(fees) from student
+19. Display unique fees.
+A.- select distinct fees from student
+20. Display max,min,sum of fees.
+A.- select max(fees) from student
+select max(fees) from student
+select sum(fees) from student
+21. Display the student according to their result in ascending.
+A.- select * from student
+order by maths, sname
+22. List the records who is studying in 7 std , male and school name is sharda.
+A.- select * from student
+where std=7 and school='sharda' and gender='m'
+23.Create backup table.
+A.- create table student2
+as select * from student
+24.Create backup table of Std 5
+A.- create table std5
+as select * from student
+where std=5
+25. Delete all the records of Xavier.
+A.- delete from student2 where school='xavier'
+26.Change the school name “Sharda” to “DPS”.
+A.- update student2 set school='dps' where school in('sharda')
+27.Change the fees student Std 5 , 5000 to 7000.
+A.- update student2 set fees=7000 where fees in(5000)
+update std5 set fees=7000 where fees in(5000)
+28.Change the student fees 10000, who got last rank.
+A.- update student set fees=10000 where maths=(select min(maths) from student)
+29. Delete all students from the student table whose total marks is <70.
+A.- delete from student2 where maths<70
+30. Delete all students who are in std 5 and studying in DPS.
+A.- delete from student2 where school='dps'and std=5
+31.Change the size of Gender field
+A.- alter table student
+modify gender varchar2(10)
+32.Change M to male and F to female.
+A.- update student set gender='male' where gender in('m')
+update student set gender='female' where gender in('f')
+33.Add new column as Total of all the subjects.
+A.- alter table student
+add total number(3)
+update student set total=maths+english+science
+34.Count number of records.
+A.- select count(sid) from student
+35. Delete column Fees.
+A.- alter table student2
+drop column fees
+Exercise 2
+create table laptop
+(
+compid number(2) primary key,
+company varchar2(10),
+model varchar2(15),
+price number(7),
+processor varchar2(5),
+storage varchar2(5)
+);
+insert into laptop values (1,'Dell','Alienware',75000,'i5','SSD')
+insert into laptop values (2,'Dell','Chromebook',60000,'i3','HDD')
+insert into laptop values (3,'Acer','Chromebook',52000,'i3','HDD')
+insert into laptop values (4,'Acer','Predator',62000,'i3','HDD')
+insert into laptop values (5,'HP','Notebook',51000,'i3','HDD')
+insert into laptop values (6,'Apple','MacBookAir',85000,'i7','SSD')
+insert into laptop values (7,'Lenovo','IdeaBook',74000,'i7','SSD')
+insert into laptop values (8,'Lenovo','IdeaBook',68000,'i5','HDD')
+insert into laptop values (9,'Dell','NoteBook',52000,'i3','HDD')
+insert into laptop values (10,'Apple','MacBook',95000,'i9','SSD')
+insert into laptop values (11,'HP','Omen',89000,'i7','SSD')
+insert into laptop values (12,'Acer','NoteBook',73000,'i7','SSD')
+insert into laptop values (13,'HP','Omen',79000,'i7','SSD')
+insert into laptop values (14,'Apple','MacBookPro',110000,'i9','SSD')
+insert into laptop values (15,'Lenovo','Legion',87000,'i9','HDD')
+Queries
+1. List all the Computer Companies Names
+A.- select distinct company from laptop
+2. List all the computers from company Apple
+A.- select * from laptop
+where company='Apple'
+3. List all the computers that are notebook
+A.- select * from laptop
+where model='Notebook' or model='NoteBook'
+4. List all the computers whose price is higher than 80000
+A.- select * from laptop
+where price<80000
+order by price
+5. List all the computers that are ChromeBook
+A.- select * from laptop
+where model='Chromebook'
+6. List all the computers with the storage type SSD
+A.- select * from laptop
+where storage='SSD'
+7. List all the computers with their price and processor type.
+A.- select company, model, processor, price from laptop order by price
+8. List all the computers whose processor is i7
+A.- select * from laptop
+where processor='i7'
+9. Display all the computers where the price is in ascending order.
+A.- select * from laptop
+order by price
+10. Display all the computers where the price is in descending order.
+A.- select * from laptop
+order by price desc
+11. Display all the computers where the processor type is in ascending order.
+A.- select * from laptop
+order by processor
+12. List all the Acer laptops that are predator.
+A.- select * from laptop
+where company='Acer' and model='Predator'
+13. List all the Dell laptops that are chromebook and price lower than 60000
+A.- select * from laptop
+where company='Dell' and model='Chromebook' and price<60000
+14. Update the price of all the laptops by apple, increase the price by 5000
+A.- update laptop set price=price+5000 where company='Apple'
+15. Display the min, max and sum of price
+A.- select min(price) from laptop
+select max(price) from laptop
+select sum(price) from laptop
+16. Display the least and most expensive laptop from the table
+A.- select * from laptop
+where price=(select min(price) from laptop)
+select * from laptop
+where price=(select max(price) from laptop)
+17. Create view to store records of all computer with storage type SSD
+A.- create view ssd
+as select * from laptop
+where storage='SSD'
+18. Display Computer company names starting with A
+A.- select * from laptop where company like 'A%'
+19. Display all the Model names starting with C
+A.- select model from laptop where model like 'C%'
+20. Create a view to store the sum of price of all 4 processor types.
+A.-
+21. Display all the laptops by Dell whose price is from 70000 to 80000
+A.- select * from laptop where company='Dell' and price<80000 and price>70000
+22. Delete all the laptops whose price is less than 55000.
+A.- delete from laptop where price<55000
+23. Create a backup of data of company HP
+A.- create table hp
+as select * from laptop where company='HP'
+24. Reduce the price of all the laptops with i3 processor by 3000
+A.- update laptop set price=price-3000 where processor='i3'
+25. Count the number of laptops that have HDD as storage and do the same for SSD.
+A.- select count(compid) from laptop where storage='HDD'
+select count(compid) from laptop where storage='SSD'
+26. Change the ‘i5’ from the processor tab and update it to Intel5.
+A.- alter table laptop
+modify processor varchar2(10)
+update laptop set processor='Intel 5' where processor='i5'
+27. Update the price of laptops by HP and dell by giving discount of 10% to i5 processors and
+20% to i7 processors.
+A.- update laptop set price=(price-10*price/100) where company like('Dell', 'HP') processor='Intel 5'
+update laptop set price=(price-20*price/100) where company like('Dell', 'HP') processor='i7'
+28. Delete all the records by Acer.
+A.- delete from laptop where company='Acer'
+29. Change all the i5 laptop by Dell to i7 and increase their prices by 5000
+A.- update laptop set price=price+5000 where company='Dell' and processor='Intel 5'
+update laptop set processor='i7' where company='Dell' and processor='Intel 5'
+30. Display all the results who’s comp id is from 7 to 14
+A.- select * from laptop where compid>7 and compid<14
+31. Display results by comp id in ascending order
+A.- select * from laptop
+order by compid
+32. Display results by comp id in descending order
+A.- select * from laptop
+order by compid desc
+Exercise 3
+create table employees
+(
+empid number(2) primary key,
+ename varchar2(10),
+exp number(2),
+salary number(7),
+hours number(2),
+jobtitle varchar2(15)
+);
+insert into employees values(1,'ajay',12,75000,5,'senior')
+insert into employees values(2,'ram',7,60000,7,'IT')
+insert into employees values(3,'shyam',9,68000,6,'ITSpecialist')
+insert into employees values(4,'jay',5,56000,8,'head')
+insert into employees values(5,'rakesh',4,45000,8,'WebDesigner')
+insert into employees values(6,'mahesh',6,62000,8,'backend')
+insert into employees values(7,'suresh',3,35000,8,'webdeveloper')
+insert into employees values(8,'kaushal',3,38000,8,'php')
+insert into employees values(9,'arjun',3,31000,8,'php')
+insert into employees values(10,'purvesh',2,14000,3,'python')
+insert into employees values(11,'raj',2,26000,9,'python')
+insert into employees values(12,'kirtan',2,29000,9,'java')
+insert into employees values(13,'rupesh',2,21000,9,'java')
+insert into employees values(14,'laxman',0,15000,9,'interns')
+insert into employees values(15,'divay',0,17000,9,'interns')
+insert into employees values(16,'taksh',1,NULL,6,NULL)
+Queries
+1. List all the names of the employees
+A.- select ename from employees
+2. List all the employees names start with R
+A.- select ename from employees
+where ename like 'r%'
+3. List all the employees names starting with R or A
+A.- select ename from employees
+where ename like 'r%' or ename like 'a%'
+4. List all the Interns
+A.- select * from employees
+where jobtitle='interns'
+5. List all the employees whose experience is less than 7 years but working hours should be 9
+A.- select * from employees
+where exp<7 and hours=9
+6. List all the employees whose salary is higher than 50000
+A.- select * from employees
+where salary>50000
+7. List all the employees whose salary is lower than 30000
+A.- select * from employees
+where salary<30000
+8. Sort and display the results by salary in ascending order
+A.- select * from employees
+order by salary
+9. List all the employees by their working hours.
+A.- select * from employees
+order by hours
+10. List all the employees Php Developers.
+A.- select * from employees
+where jobtitle='php'
+11. Update the working hours of people whose experience is lower than 3 years. Decrease the
+working hour by 1 hour.
+A.- update employees set hours=hours-1 where exp<3
+12. Update the salary of all the employees whose experience is 3 years and increase their
+salary by 4000.
+A.- update employees set salary=salary+4000 where exp=3
+13. Display all the results where names are sorted alphabetically.
+A.- select * from employees
+order by ename
+14. Create a view table where all the employees have experience above 8
+A.- create view empexp
+as select * from employees
+where exp>8
+15. Increase the salary of each employee by 10 %
+A.- update employees set salary=salary+(salary*10/100)
+16. Increase the experience of Interns by 1.
+A.- update employees set exp=exp+1 where jobtitle='interns'
+17. Display all the Java developers.
+A.- select * from employees
+where jobtitle='java'
+18. Update the title of IT Specialist assistant to Junior IT Specialist and reduce the working hour
+by 1
+A.- alter table employees
+modify jobtitle varchar2(50)
+update employees set jobtitle='Junior IT Specialist'
+where jobtitle='ITSpecialist'
+19. Increase the salary of web designer by 5%
+A.- update employees set salary=salary+(salary*5/100)
+where jobtitle='WebDesigner'
+20. Delete the records whose experience is 1 years.
+A.- delete from employees where exp=1
+21. Delete all the records of Php Developers
+A.- delete from employees where jobtitle='php'
+22. Display all the results whose salary is less than the salary of Raj.
+A.- select * from employees
+where salary<(select salary from employees where ename='raj')
+23. Display the record of the person whose salary is the highest.
+A.- select * from employees
+where salary=(select max(salary) from employees)
+24. Display the records of the person whose working hours is the least.
+A.- select * from employees
+where hours=(select min(hours) from employees)
+25. Display total number of employees and the total number of employees who got salary.
+A.- select count(ename) from employees
+select count(salary) from employees
+26. Display the records whose jobtitle is null.
+A.- select * from employees
+where jobtitle=NULL
+27. Display the records of employee’s name ,salary and jobtitle whose jobtitle is not null
+A.- select * from employees
+where jobtitle not like 'NULL'
+Exercise 4
+CREATE TABLE mystudent (
+id number(2)primary key,
+sname varchar(50),
+class varchar(10),
+mark number(3),
+gender varchar2(6) DEFAULT 'male'
+)
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES (1, 'Jhanvi', 'Four', 75, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(2, 'Manav', 'Three', 85, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(3, 'Anshul', 'Three', 55, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(4, 'Krish', 'Four', 60, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(5, 'Janak', 'Four', 60, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(6, 'Ashav', 'Four', 55, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(7, 'Mayur', 'Five', 78, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(8, 'Anish', 'Five', 85, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(9, 'Tanish', 'Six', 78, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(10, 'Big John', 'Four', 55, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(11, 'Rani', 'Six', 89, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(12, 'Riya', 'Six', 94, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(13, 'Kiya', 'Seven', 88, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(14, 'Bani', 'Seven', 88, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(15, 'Tanay', 'Four', 88, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(16, 'Gimmy', 'Four', 88, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(17, 'Kavish', 'Six', 54, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(18, 'Het', 'Five', 75, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(19, 'Tinny', 'Nine', 18, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(20, 'Jasmin', 'Nine', 65, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(21, 'Bhavin', 'Four', 69, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(22, 'Raj', 'Seven', 55, 'female')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(23, 'Sahil', 'Eight', 79, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(24, 'Jayul', 'Seven', 78, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(25, 'Janak', 'Seven', 88, 'male')
+INSERT INTO mystudent (id, sname, class, mark, gender) VALUES(26, 'Lucky', 'Seven', 79, 'male')
+Queries
+1. Display all students of Class Four in the order of their Name
+A.- select * from mystudent
+where class='Four'
+order by sname
+2. Display all students in the order of Class and then Mark.
+A.- select * from mystudent
+order by sname, mark
+3. Display all students who got mark more than 50
+A.- select * from mystudent
+where mark>50
+4. Display all students who got mark between 50 and 60
+A.- select * from mystudent
+where mark>50 and mark<60
+5. Display all students who’s name starts with A
+A.- select * from mystudent
+where sname like 'A%'
+6. Display all students who’s name ends with hn
+A.- select * from mystudent
+where sname like '%hn'
+7. Display all students who’s name has John at any location
+A.- select * from mystudent
+where sname like '%John' or sname like 'John%'
+8. Display all students who’s name start with A or start with B
+A.- select * from mystudent
+where sname like 'A%' or sname like 'B%'
+9. Display all students who’s name ends with A or ends with B
+A.- select * from mystudent
+where sname like '%a' or sname like '%b'
+10. Display all students who’s id is more than 10 and second digit is 3
+A.- select * from mystudent
+where id>10 and id like'%3'
+11. Display all students who’s name starts with A and ends with n
+A.- select * from mystudent
+where sname like 'A%' and sname like '%n'
+12. Display all students who’s name starts with A but does not end with n
+A.- select * from mystudent
+where sname like 'A%' and sname not like '%n'
+13. Display all details of the student having highest mark
+A.- select * from mystudent
+where mark=(select max(mark) from mystudent)
+14. Display the students who’s name starts with A and got more than 60 mark
+A.- select * from mystudent
+where sname like'A%' and mark>60
+15. Display the students who’s ids are (within) 12, 14,13, 9 & 6
+A.- select * from mystudent
+where id in(12, 14,13, 9, 6)
+16. Display all the classes in student table
+A.- select class from mystudent
+17. Display all 5 students who added recently ( last 5 records )
+A.-
+18. Find out the number of students.
+A.- select count(id) from mystudent
+19. Find out the number of students in Class Three
+A.- select count(id) from mystudent
+where class='Three'
+20. Find out the number of students who got more than 50 mark
+A.- select count(id) from mystudent
+where mark>50
+21. Find out the number of students who got mark between 50 and 70
+A.- select count(id) from mystudent
+where mark>50 and mark<70
+22. List the students who got more than 50 mark of class three
+A.- select count(id) from mystudent
+where mark>50 and class='Three'
+23. What is the highest mark
+A.- select * from mystudent
+where mark=(select max(mark) from mystudent)
+24. What is the highest mark of class Three
+A.- select * from mystudent
+where mark=(select max(mark) from mystudent where class='Three')
+25. What is the average mark of class Four.
+A.- select avg(mark) from mystudent
+where class='Four'
+26. What is the minimum mark of class Five
+A.- select min(Mark) from mystudent
+where class='Five'
+27. What is the Total mark of students of class Three
+A.- select sum(Mark) from mystudent
+where class='Three'
+28. List the full details of ( name, class, mark , gender ) of the student who got highest mark.
+A.- select * from mystudent
+where mark=(select max(mark) from mystudent)
+Exercise 5
+create table stdt
+(
+sid number(2)primary key,
+sname varchar2(10)
+);
+insert into stdt values(1,'ram')
+insert into stdt values(2,'raj')
+insert into stdt values(3,'raima')
+insert into stdt values(4,'mansi')
+insert into stdt values(5,'pallavi')
+insert into stdt values(6,'mit')
+insert into stdt values(7,'krina')
+insert into stdt values(8,'rana')
+insert into stdt values(9,'shyam')
+insert into stdt values(10,'pooja')
+create table exam
+(
+id number(2)primary key,
+sid number(2) references stdt(sid),
+eng number(2),
+hindi number(2),
+guj number(2)
+);
+insert into exam values(1,1,20,25,22)
+insert into exam values(2,1,30,26,32)
+insert into exam values(3,2,40,28,44)
+insert into exam values(4,2,45,25,17)
+insert into exam values(5,3,22,32,28)
+insert into exam values(6,4,34,15,46)
+insert into exam values(7,5,34,15,46)
+insert into exam values(8,6,21,40,29)
+insert into exam values(9,7,13,11,13)
+insert into exam values(10,8,25,28,27)
+Queries
+1. Display Name of the students whose name length is 5
+A.- select count(sname) from stdt
+where length(sname)=5
+2. Display the name of the student whose name start with R
+A.- select sname from stdt
+where sname like 'r%'
+3. Display the name of the students and marks of eng, hindi and guj
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+4. Display the name of the students and total marks
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+5. Display the name of the students and total marks order by total
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+order by eng+hindi+guj
+6. Display the name and total of student who got highest marks
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+where eng+hindi+guj=(select max(eng+hindi+guj) from exam)
+7. Display the name and total of student who got lowest marks
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+where eng+hindi+guj=(select min(eng+hindi+guj) from exam)
+8. Display the name of the student who got highest marks in Eng
+A.- select stdt.sname,exam.eng
+from stdt
+join exam
+on stdt.sid=exam.sid
+where eng=(select max(exam.eng) from exam)
+9. Display the name of the student and marks of all the subject whose English marks is
+between 18 to 25
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+where eng>18 and eng<25
+10. Display the name of the student and marks of all the subject whose English marks is not
+between 18 to 25.
+A.- select stdt.sname, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+where eng>25 or eng<18
+11.Create a View which display student’s name , eng, hindi and guj marks.
+A.- create view stdt2
+as select stdt.sname, exam.eng, exam.hindi, exam.guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+12. Display the students who appeared for the two times.
+A.- select stdt.sname, exam.sid, exam.eng, exam.hindi, exam.guj, eng+hindi+guj
+from stdt
+join exam
+on stdt.sid=exam.sid
+where stdt.sid in(select sid from exam group by sid having count(sid)>1)
+13. Display the student who never appeared for the exam.
+A.- select sname
+from stdt
+where sname not in(select stdt.sname from stdt join exam on stdt.sid=exam.sid)
+alter table student
+add dob date
+update student set dob='1-Jan-1999'
+where sid=5
+update student set dob='1-Jan-1999'
+select sname,dob,to_char(dob,'dd'),to_char(dob,'ddsp'),to_char(dob,'ddspth'),to_char(dob,'day'),to_char(dob,'mm'),to_char(dob,'mon'),to_char(dob,'month'),to_char(dob,'yy'),to_char(dob,'yyyy'),to_char(dob,'year') from student
+update student set dob='15-Dec-1998'
+where sid=7
+update student set dob='17-Feb-2000'
+where sid=6
+update student set dob='31-Oct-1999'
+where sid=8
+update student set dob='16-Nov-1999'
+where sid=9
+update student set dob='22-Jun-2000'
+where sid=10
+select sname,dob from student
+where to_char(dob,'mm')=12
+select sname,dob from student
+where to_char(dob,'dd')=22
+select sname,dob from student
+where to_char(dob,'yyyy')=1999
+select sname,dob from student
+where to_char(dob,'dd')=17
+select count(dob) from student
+where to_char(dob,'yyyy')=1999
+alter table student
+drop column total
+alter table student
+add age number(3)
+update student set age=round((sysdate-dob)/365)
+select * from student
+alter table student
+drop column age
+select sname,dob,round((sysdate-dob)/365) from student
+select sname,dob,add_months(dob,3) from student
+select sname,dob,to_date('01-Jan-1990','dd-mm-yyyy') from student
+select to_char(to_date('01-Jan-1990','dd-mm-yyyy'),'day') from dual
+select current_date from dual
+SELECT EXTRACT( YEAR FROM TO_DATE( '29-Apr-2020 05:30:20 ', 'DD-Mon-YYYY HH24:MI:SS' ) ) YEAR FROM DUAL;
+SELECT LAST_DAY(sysdate) LAST_DAY FROM dual;
+SELECT round(MONTHS_BETWEEN( sysdate, DATE '2011-04-02' )) MONTH_DIFFERENCE FROM DUAL;
+SELECT MONTHS_BETWEEN( sysdate, DATE '2011-04-02' )) MONTH_DIFFERENCE FROM DUAL;
+SELECT CURRENT_TIMESTAMP FROM dual;
+SELECT DBTIMEZONE FROM dual;
+SELECT FROM_TZ(TIMESTAMP '2020-05-01 19:35:10', '-07:00')NEWVALUE FROM DUAL;
+SELECT NEW_TIME( sysdate, 'PST', 'AST' ) TIME_IN_AST FROM DUAL;
+SELECT TO_CHAR( ROUND( TO_DATE( '01-May-2020 20:27:15', 'DD-Mon-YYYY HH24:MI:SS' ) ), 'DD-Mon-YYYY HH24:MI:SS' ) rounded_date FROM dual;
+SELECT SESSIONTIMEZONE FROM dual;
+SELECT SYSTIMESTAMP FROM dual;
+SELECT TRUNC( SYSDATE, 'MM' ) MONTH FROM dual;
+SELECT TZ_OFFSET('') OFFSET FROM DUAL;
+Absolute
+select abs(-6) from dual
+Mod
+Select mod(9,5) from dual
+Sign
+Select sign(-10) from dual
+Floor
+Select floor(5.7) from dual
+Ceiling
+Select ceil(5.7) from dual
+Power
+Select power(2,5) from dual
+Round
+Select round(5.7) from dual
+SQRT
+Select sqrt(9) from dual
+ASIN
+Select asin(0) from dual
+ACOS
+Select acos(0) from dual
+ATAN
+Select atan(0) from dual
+SIN
+Select sin(0) from dual
+COS
+Select cos(0) from dual
+TAN
+Select tan(0) from dual
+Exercise 6
+create table empl
+(
+empno number(2) primary key,
+ename varchar2(15),
+dob date)
+create table dept1
+(
+deptno number(3) primary key,
+dname varchar2(15),
+city varchar2(15)
+)
+create table empdept
+(
+edid number(2) primary key,
+empno number(2) references empl(empno),
+deptno number(3) references dept1(deptno),
+joindate date,salary number(5)
+)
+insert into empl values(1,'ram','1-jan-1970')
+insert into empl values(2,'shyam','12-feb-1973')
+insert into empl values(3,'ravi','14-march-1975')
+insert into empl values(4,'shital','30-oct-1990')
+insert into empl values(5,'mahek','2-jan-1974')
+insert into empl values(6,'jaxit','4-nov-1978')
+insert into empl values(7,'tirth','10-march-1999')
+insert into empl values(8,'rushali','13-march-1982')
+insert into empl values(9,'palak','2-sep-1994')
+insert into empl values(10,'rahul','29-feb-1968')
+insert into empl values(11,'isha','23-dec-2000')
+insert into empl values(12,'kaliya','15-may-2002')
+insert into empl values(13,'saloni','19-jul-1987')
+insert into empl values(14,'rajveer','19-mar-1985')
+insert into dept1 values(101,'pur','baroda')
+insert into dept1 values(102,'sal','ahmedabad')
+insert into dept1 values(103,'acc','surat')
+insert into dept1 values(104,'IT','bombay')
+insert into empdept values(1,1,101,'12-may-2012',20000)
+insert into empdept values(2,2,104,'28-jan-2000',25000)
+insert into empdept values(3,3,103,'15-feb-2015',23000)
+insert into empdept values(4,4,102,'17-sep-2004',15000)
+insert into empdept values(5,5,104,'8-dec-2008',30000)
+insert into empdept values(6,6,101,'16-jun-2010',35000)
+insert into empdept values(7,7,102,'14-may-2011',19000)
+insert into empdept values(8,8,103,'21-mar-2014',40000)
+insert into empdept values(9,9,104,'16-nov-2002',18000)
+insert into empdept values(10,10,102,'30-sep-2007',32000)
+insert into empdept values(11,11,103,'31-dec-2009',22000)
+insert into empdept values(12,12,101,'4-aug-2004',22000)
+insert into empdept values(13,13,104,'15-jul-2013',26000)
+insert into empdept values(14,3,104,'18-jan-2012',28000)
+insert into empdept values(15,7,101,'19-jan-2013',26000)
+insert into empdept values(16,12,104,'21-feb-2008',33000)
+insert into empdept values(17,12,103,'3-mar-2003',36000)
+Queries
+1. Find the name of employees start with ‘R’.
+A.- select ename from empl
+where ename like 'r%'
+2. Find the name of the employee whose birthday in ‘dec’.
+A.- select ename,dob from empl
+where to_char(dob,'mm')=12
+3. Create a query to display the name and salary for all employees whose salary is not in
+the range of 15000 and 25000
+A.- select empl.ename,empdept.empno,empdept.joindate,empdept.salary
+from empl
+join empdept
+on empl.empno=empdept.empno
+where salary<15000 or salary>25000
+4. Select employee name and department number of the entire employee in departments
+103 and 104
+A.- select empl.ename,empdept.empno,empdept.deptno,empdept.joindate,empdept.salary
+from empl
+join empdept
+on empl.empno=empdept.empno
+where deptno=103 or deptno=104
+5. Display unique department.
+A.- select distinct empdept.deptno
+from empl
+join empdept
+on empl.empno=empdept.empno
+order by deptno
+//
+select distinct deptno from dept1
+//
+6. Find youngest employee
+A.- select * from empl
+where dob=(select max(dob) from empl)
+7. Find oldest employee.
+A.- select * from empl
+where dob=(select min(dob) from empl)
+8. Display Employee name with age.
+A.- select ename,round((sysdate-dob)/365) from empl
+9. Display total employee in each department.
+A.- select dept1.deptno, count(empdept.empno) as employee_number
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+group by dept1.deptno
+order by deptno
+10.Create view for that display ename and dname.
+A.- create view enamedname
+as select empl.ename,dept1.dname
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+11. Display ename order of their joindate
+A.- select empl.ename,empdept.joindate
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+order by joindate
+12. Display employee details according to salary.
+A.- select empl.ename,empdept.empno,dept1.deptno,dept1.dname,empdept.salary,empdept.joindate
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+order by salary
+13. Find the total experience of employee in our company.
+A.- select sum(round((sysdate-joindate)/365)) as total_experience
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+14. Display details of employee who get highest salary.
+A.- select empl.ename,empdept.empno,dept1.deptno,dept1.dname,empdept.salary,empdept.joindate,round((sysdate-joindate)/365) as experience
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+where salary=(select max(salary) from empdept)
+15. Display details of employee who get lowest salary.
+A.- select empl.ename,empdept.empno,dept1.deptno,dept1.dname,empdept.salary,empdept.joindate,round((sysdate-joindate)/365) as experience
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+where salary=(select min(salary) from empdept)
+16. Display Ename,dname,city,joindate,salary
+A.- select empl.ename,dept1.dname,empdept.salary,empdept.joindate,dept1.city
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+17.Create view for above query.
+A.- create view empl11
+as select empl.ename,dept1.dname,empdept.salary,empdept.joindate,dept1.city
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+18. Display dob in format of ‘one January twothousand eight’
+A.-
+19.Add 5 months to each dob.
+A.-
+20. Display the details of department having min 3 employee.
+A.- select dept1.deptno,dept1.dname,dept1.city, count(empdept.empno) as employee_number
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+group by dept1.dname,dept1.deptno,dept1.city
+having count(empdept.empno)>=3
+order by dept1.deptno
+21. Display ename and dname whose name start with ‘R’
+A.- select empl.ename,dept1.dname
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+where ename like 'r%'
+22. Display employee details whose salary is greater than shyam.
+A.- select empl.ename,empdept.empno,dept1.deptno,dept1.dname,empdept.salary,empdept.joindate,round((sysdate-joindate)/365) as experience
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+where salary>(select empdept.salary from empdept join empl on empdept.empno=empl.empno where ename='shyam')
+order by salary
+23. Display the department details in which no one employee is working.
+A.- select dept1.deptno,dept1.dname,dept1.city, count(empdept.empno) as employee_number
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+group by dept1.dname,dept1.deptno,dept1.city
+having count(empdept.empno)=0
+order by dept1.deptno
+24.Add one column commission in employee table.
+A.- alter table empdept
+add commission number(5)
+25.Add commission of 500 employee who work in dept 101, 1000 for 102,2000 for
+103,3000 for 104.
+A.- update empdept set commission=500
+where deptno=101
+update empdept set commission=1000
+where deptno=102
+update empdept set commission=2000
+where deptno=103
+update empdept set commission=3000
+where deptno=104
+26. Display ename,salary,salary+commission.
+A.- select empl.ename,empdept.salary,empdept.commission,empdept.salary+empdept.commission as income
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+27. Update salary 20% for dept 102.
+A.- update empdept set salary=salary+(salary*20/100)
+where deptno=102
+28. Display department details in which highest employees are working.
+A.- select * from dept1 where deptno=(select deptno from empdept
+group by deptno having count(*)=(
+select max(count(*)) from empdept
+group by deptno))
+29. Display the employee’s details who are working in only one department.
+A.- select empdept.empno,empl.ename,empl.dob,empdept.salary
+from empdept join empl on empl.empno=empdept.empno
+where deptno=(select deptno from empdept
+group by deptno having count(*)=(
+select min(count(*)) from empdept
+group by deptno))
+select dept1.deptno,dept1.dname,dept1.city, count(empdept.empno) as employee_number
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+group by dept1.dname,dept1.deptno,dept1.city
+having count(empdept.empno)>1
+order by dept1.deptno
+select empl.ename,empdept.empno,dept1.deptno,dept1.dname,empdept.salary,empdept.joindate,round((sysdate-joindate)/365) as experience
+from empl
+join empdept
+on empl.empno=empdept.empno
+join dept1
+on dept1.deptno=empdept.deptno
+create table demo_1
+(
+eno number(2)unique,
+ename varchar2(20)
+);
+insert into demo_1 values(1,'ram')
+insert into demo_1 values(2,'nayan')
+insert into demo_1 values(3,'raj')
+insert into demo_1 values(NULL,'rahul')
+insert into demo_1 values(1,'kavya')
+create table demo_2
+(
+eno number(2)not null,
+ename varchar2(20)
+);
+insert into demo_2 values(1,'ram')
+insert into demo_2 values(2,'nayan')
+insert into demo_2 values(3,'raj')
+insert into demo_2 values(NULL,'rahul')
+insert into demo_2 values(1,'kavya')
+create table demo_3
+(
+eno number(2)primary key,
+ename varchar2(20)
+);
+insert into demo_3 values(1,'ram')
+insert into demo_3 values(2,'nayan')
+insert into demo_3 values(3,'raj')
+insert into demo_3 values(NULL,'rahul')
+insert into demo_3 values(1,'kavya')
+alter table demo_3
+add city varchar(10) default 'mumbai'
+select * from demo_3
+insert into demo_3 (eno,ename) values(4,'nayan')
+select * from demo_3
+insert into demo_3 values(5,'narayan','ahmedabad')
+select * from demo_3
+alter table demo_2
+add city varchar2(10)
+alter table demo_2
+add constraint citycondition check (city in('abd','mum','sur'))
+insert into demo_2 values(5,'narayan','pun')
+insert into demo_2 values(5,'narayan','abd')
+create table voters
+(
+vno number(2) primary key,
+vname varchar2(50),
+age number(3)
+);
+alter table voters
+add constraint agecondition check (age>=18
